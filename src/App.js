@@ -1,8 +1,9 @@
 import './App.css';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import Header from './Header'
 import Login from './Login'
 import Home from './Home'
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import Checkout from './Checkout'
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Switch>
         <Route path="/checkout">
       <Header/>
+      <Checkout/>
       </Route>
       <Route path="/login">
       <Login/>

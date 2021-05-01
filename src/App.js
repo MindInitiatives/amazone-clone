@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import './App.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import Header from './Header'
@@ -6,8 +7,34 @@ import Home from './Home'
 import Checkout from './Checkout'
 import Footer from './Footer'
 import Navlinks from './Navlinks'
+import { auth } from './firebase'
+import { useStateValue } from './StateProvider';
 
 function App() {
+
+  const [{loggedinuser}, dispatch] = useStateValue()
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((userauth) => {
+      if(userauth) {
+        dispatch({
+          type: 'SET_LOGIN',
+          user: userauth
+        })
+      } else {
+        dispatch({
+          type: 'SET_LOGIN',
+          user: null
+        })
+      }
+    })
+    return () => {
+      unsubscribe();
+    }
+  }, [])
+
+  console.log("user >>", loggedinuser)
+
   return (
     <Router>
     <div className="App">

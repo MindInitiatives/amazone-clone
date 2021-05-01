@@ -4,6 +4,8 @@ import Header from './Header'
 import Login from './Login'
 import Home from './Home'
 import Checkout from './Checkout'
+import Footer from './Footer'
+import Navlinks from './Navlinks'
 
 function App() {
   return (
@@ -19,7 +21,9 @@ function App() {
       </Route>
       <Route path="/">
       <Header/>
+      <Navlinks/>
       <Home/>
+      <Footer/>
       </Route>
       </Switch>
     </div>

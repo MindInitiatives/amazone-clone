@@ -1,6 +1,7 @@
 import './App.css';
 import Header from './Header'
 import Login from './Login'
+import Home from './Home'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
 function App() {
@@ -13,6 +14,10 @@ function App() {
       </Route>
       <Route path="/login">
       <Login/>
+      </Route>
+      <Route path="/">
+      <Header/>
+      <Home/>
       </Route>
       </Switch>
     </div>
